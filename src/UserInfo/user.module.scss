@@ -1,0 +1,51 @@
+.user-wrapper {
+  .loader-wrapper {
+    display: grid;
+    place-items: center;
+    height: 100%;
+  }
+
+  .error-wrapper {
+    display: grid;
+    place-items: center;
+
+    .error {
+      height: 300px;
+      width: 100%;
+    }
+  }
+
+  .user-info {
+    .user {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      .avatar-wrapper {
+        width: 200px;
+        height: 200px;
+        background-color: #36d7b7;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+
+        .avatar {
+          margin-top: 20px;
+          border-radius: 50%;
+          height: 180px;
+          width: 180px;
+        }
+      }
+      .user-data {
+        .name {
+          font-size: 32px;
+          font-weight: 700;
+        }
+        .email {
+          font-size: 18px;
+          font-weight: 500;
+          color: cornflowerblue;
+        }
+      }
+    }
+  }
+}

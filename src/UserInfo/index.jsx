@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { PacmanLoader } from "react-spinners";
 
 import errorImage from "../images/404.svg";
 
@@ -25,7 +26,6 @@ const UserInfo = () => {
         const data = await response.json();
         setUser(data);
         setError(null);
-        console.log(data);
       } catch (err) {
         setError(err);
         setUser(null);
@@ -41,7 +41,36 @@ const UserInfo = () => {
     <div className={styles["user-wrapper"]}>
       {error && (
         <div className={styles["error-wrapper"]}>
-          <img src={errorImage} alt="" />
+          <img className={styles["error"]} src={errorImage} alt="" />
+        </div>
+      )}
+      {loading && (
+        <div className={styles["loading-wrapper"]}>
+          <PacmanLoader
+            loading={loading}
+            size={25}
+            className={styles["loader"]}
+            color="#000000"
+          />
+        </div>
+      )}
+      {!error && !loading && (
+        <div className={styles["user-info"]}>
+          {user.map((user) => (
+            <div className={styles["user"]}>
+              <div className={styles["avatar-wrapper"]}>
+                <img
+                  src="https://gravatar.com/avatar/ca1f63cb38ffe205102c96abd064e967?s=400&d=robohash&r=x"
+                  className={styles["avatar"]}
+                  alt={user.name}
+                />
+              </div>
+              <div className={styles["user-data"]}>
+                <p className={styles["name"]}>{user.name}</p>
+                <p className={styles["email"]}>{user.email}</p>
+              </div>
+            </div>
+          ))}
         </div>
       )}
     </div>
