@@ -64,7 +64,9 @@ const AsyncAwait = () => {
                   src="https://robohash.org/YOUR-TEXT.png"
                   alt=""
                 />
-                <p className={styles["name"]}>{user.name}</p>
+                <Link to={`/user/${user.id}`} className={styles["name"]}>
+                  {user.name}
+                </Link>
                 <p className={styles["email"]}>{user.email}</p>
               </div>
             ))}
