@@ -1,14 +1,18 @@
 import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
-import AsyncAwait from "./AsyncAwait";
+// import AsyncAwait from "./AsyncAwait";
+import Then from "./Then";
 import UserInfo from "./UserInfo";
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<AsyncAwait />} />
+        {/* for async await */}
+        {/* <Route path="/" element={<AsyncAwait />} /> */}
+        {/* for then */}
+        <Route path="/" element={<Then />} />
         {/* Fetch data according to ID */}
         <Route path="/user/:id" element={<UserInfo />} />
       </Routes>
