@@ -28,6 +28,7 @@ const Then = () => {
             avatar: "https://robohash.org/YOUR-TEXT.png",
           }))
         );
+        setError(null);
       })
       .catch((err) => {
         setError(err);

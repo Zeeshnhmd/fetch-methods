@@ -27,6 +27,7 @@ const AsyncAwait = () => {
           avatar: "https://robohash.org/YOUR-TEXT.png",
         }))
       );
+      setError(null);
       console.log(users, "data");
     } catch (err) {
       setError(err.message);
