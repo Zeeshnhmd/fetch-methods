@@ -21,7 +21,12 @@ const AsyncAwait = () => {
         throw new Error(`${response.status}`);
       }
       const data = await response.json();
-      setUsers(data);
+      setUsers(
+        data.map((dataEl) => ({
+          ...dataEl,
+          avatar: "https://robohash.org/YOUR-TEXT.png",
+        }))
+      );
       console.log(users, "data");
     } catch (err) {
       setError(err.message);
@@ -59,11 +64,7 @@ const AsyncAwait = () => {
           <div className={styles["cards-wrapper"]}>
             {users.map((user) => (
               <div key={user.id} className={styles["card"]}>
-                <img
-                  className={styles["avatar"]}
-                  src="https://robohash.org/YOUR-TEXT.png"
-                  alt=""
-                />
+                <img className={styles["avatar"]} src={user.avatar} alt="" />
                 <Link to={`/user/${user.id}`} className={styles["name"]}>
                   {user.name}
                 </Link>
