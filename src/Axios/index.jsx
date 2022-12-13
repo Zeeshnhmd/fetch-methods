@@ -16,9 +16,8 @@ const Axios = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        "https://jsonplaceholder.typicode.com/user"
+        "https://jsonplaceholder.typicode.com/users"
       );
-      console.log(response);
       if (!response.status === 200) {
         throw new Error(response.status);
       }
@@ -29,7 +28,6 @@ const Axios = () => {
           avatar: "https://robohash.org/YOUR-TEXT.png",
         }))
       );
-      console.log(response.data);
       setError(null);
     } catch (err) {
       setError(err);
@@ -44,8 +42,8 @@ const Axios = () => {
   }, []);
 
   return (
-    <div className={styles["async-await-wrapper"]}>
-      <div className={styles["async-await"]}>
+    <div className={styles["axios-wrapper"]}>
+      <div className={styles["axios"]}>
         {loading && (
           <div className={styles["loader-wrapper"]}>
             <PacmanLoader
