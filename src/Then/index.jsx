@@ -22,7 +22,12 @@ const Then = () => {
       })
       .then((data) => {
         console.log(data);
-        setUsers(data);
+        setUsers(
+          data.map((dataEl) => ({
+            ...dataEl,
+            avatar: "https://robohash.org/YOUR-TEXT.png",
+          }))
+        );
       })
       .catch((err) => {
         setError(err);
@@ -63,11 +68,7 @@ const Then = () => {
           <div className={styles["cards-wrapper"]}>
             {users.map((user) => (
               <div key={user.id} className={styles["card"]}>
-                <img
-                  className={styles["avatar"]}
-                  src="https://robohash.org/YOUR-TEXT.png"
-                  alt=""
-                />
+                <img className={styles["avatar"]} src={user.avatar} alt="" />
                 <Link to={`/user/${user.id}`} className={styles["name"]}>
                   {user.name}
                 </Link>
